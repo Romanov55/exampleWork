@@ -1,0 +1,88 @@
+@use '../vars'
+
+.base
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+
+  @media (max-width:1024px)
+    gap: 30px
+
+    .news__img
+      width: 100% 
+
+  .base__extreme
+    grid-column: span 3
+
+    @media (max-width:1024px)
+      grid-column: span 12
+
+    > :nth-child(1)
+      padding-bottom: 15px
+      border-bottom: vars.$border2 1px solid
+      margin-bottom: 15px
+
+      @media (max-width:1024px)
+        border: none
+
+  .base__center
+    grid-column: span 6
+    display: flex
+    flex-direction: column
+
+    @media (max-width:1024px)
+      grid-column: span 12
+      border: none
+      padding: 0
+      margin: 0
+
+    > :nth-child(1)
+      padding-bottom: 15px
+      border-bottom: vars.$border2 1px solid
+
+      @media (max-width:1024px)
+        border: none
+
+    > :nth-child(2)
+      flex-direction: row
+      margin: 15px 0 auto 0
+
+      @media (max-width:1024px)
+        flex-direction: column
+        margin: 0
+
+      .base__inside__block
+        margin-top: 10px
+        
+        @media (max-width:1024px)
+          margin-top: 0
+      
+      img
+        width: 40%
+
+        @media (max-width:1024px)
+          width: 100%
+
+  .base__inside__block
+    display: flex
+    flex-direction: column
+    gap: 10px
+
+    @media (max-width: 770px)
+      gap: 0
+
+
+  .base__news
+    display: flex
+    flex-direction: column
+    gap: 10px
+
+  > :nth-child(2), 
+  > :nth-child(3)
+    border-left: vars.$border2 1px solid
+    padding-left: 15px
+    margin-left: 15px
+
+    @media (max-width:1024px)
+      border: none
+      margin: 0
+      padding: 0

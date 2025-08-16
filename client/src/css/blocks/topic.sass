@@ -1,0 +1,58 @@
+@use '../vars'
+
+.topic__entry
+  display: flex
+  flex-direction: column
+  gap: 15px
+
+  .topic__entry__block
+    position: relative
+    display: flex
+    overflow: hidden
+
+    &::after
+      content: ''
+      position: absolute
+      width: 100%
+      height: 100%
+      background: vars.$black
+      opacity: .3
+
+  .topic__entry__preview__img
+    margin: 0 auto
+    width: 100%
+    height: auto
+    
+    @media (max-width: 770px)
+      width: auto
+      object-fit: cover
+      height: 200px
+      min-width: 100%
+
+  .topic__entry__preview__title
+    position: absolute
+    top: 50%
+    left: 50%
+    font-size: 60px
+    color: vars.$white
+    transform: translate(-50%,-50%)
+    max-width: 80%
+    z-index: 1
+    font-weight: 600
+
+    @media (max-width: 770px)
+      font-size: 35px
+    
+  .topic__entry__description
+    text-align: center
+    max-width: 80%
+    margin: 0 auto
+
+.main__topic__title
+  font-weight: 600
+  padding: 10px 0
+  border-top: 1px solid vars.$border2
+  border-bottom: 1px solid vars.$border2
+  text-align: center
+  font-size: 25px
+  margin-bottom: 30px

@@ -1,0 +1,55 @@
+@use './vars';
+
+body
+  font-size: 16px
+
+  @media (max-width: 1000px)
+    font-size: 18px
+
+  @media (max-width: 770px)
+    font-size: 16px
+
+main
+  display: flex
+  flex-direction: column
+  gap: 80px
+  margin-top: 30px
+  margin-bottom: 30px
+
+  @media (max-width: 770px)
+    gap: 50px
+
+input
+  padding: 10px 15px
+  border-radius: 0
+  border: 1px solid vars.$black
+
+  &:focus
+    outline: 1px solid vars.$black
+
+button
+  cursor: pointer
+
+.container
+  max-width: 1300px
+  margin: 0 auto
+  width: 100%
+
+  @media (max-width: 1400px)
+    margin: 0 3%
+    width: 94%
+
+hr
+  border: none
+  width: 100%
+  height: 1px 
+  background: vars.$border
+
+.load 
+  animation: spin 2s infinite linear
+
+@keyframes spin 
+  from 
+    transform: rotate(0deg)
+  to 
+    transform: rotate(360deg)

@@ -1,0 +1,40 @@
+@use '../vars';
+
+.article
+  .article__title
+    font-size: 45px
+    margin-bottom: 20px
+    text-align: center
+
+    @media (max-width: 770px)
+      font-size: 25px
+
+  .article__img
+    object-fit: contain
+    width: 500px
+    height: auto
+    margin: 0 auto
+    display: flex
+
+    @media (max-width: 600px)
+      width: 100%
+
+  .article__info
+    margin-top: 30px
+
+    img
+      display: flex
+      max-width: 100%
+      height: auto
+      margin: 0 auto
+
+  .article__topics
+    display: flex
+    gap: 15px
+    margin-top: 20px
+
+    .article__topics__link
+      border: 2px solid vars.$main
+      padding: 10px
+      border-radius: 26px
+  

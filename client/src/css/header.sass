@@ -1,0 +1,196 @@
+@use './vars';
+  
+.header
+  overflow: visible
+  position: sticky
+  top: 0
+  z-index: 100
+  background: vars.$white
+
+  @media (max-width: 1000px)
+    position: static
+
+  .logo
+    width: 150px
+    height: 75px
+    transition: .5s
+    position: relative
+    left: 0
+
+    &.hide
+      @media (max-width: 500px)
+        left: -100%
+        max-width: 0
+
+  .header__top
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 75px
+    transition: .5s
+
+    .header__top__right
+      display: flex
+      align-items: center
+      gap: 10px
+      position: relative
+
+      @media (max-width: 1000px)
+        margin-right: 70px
+
+      @media (max-width: 500px)
+        flex: 1
+
+      input
+        width: 300px
+        padding: 10px 15px
+        border: 1px solid vars.$black
+        transition: all .5s ease
+        transform: scaleX(0)
+        transform-origin: right
+
+        @media (max-width: 770px)
+          width: 100%
+
+        &.show
+          transform: scaleX(1)
+
+      .btn__search
+        position: absolute
+        right: 0
+        padding: 5px 10px
+        transition: .3s
+        opacity: .8
+        transform: none
+
+        &.active
+          transform: rotate(30deg)
+
+        @media (min-width:770px) 
+          right: 70px
+
+          &:hover
+            transform: rotate(30deg)
+
+      .search__list
+        .search__list-li
+          padding: 0
+
+        .search__list-link
+          padding: 5px 15px
+          display: block
+
+          &:hover
+            background: vars.$main
+            color: vars.$white
+
+  .header__bottom
+    display: flex
+    gap: 1rem
+    overflow-x: auto
+
+    .header__bottom__box
+      position: relative
+      transition: .3s
+
+      &::after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 3px
+        opacity: 0
+        transition: .3s
+        background: vars.$main
+
+      &:hover
+        color: vars.$main
+
+        &::after
+          opacity: 1
+
+      .header__bottom__box__link
+        padding: 16px 0
+        display: inline-block
+        font-size: 18px
+
+  @media (max-width:770px)
+    .telegram
+      display: none
+
+.mobile
+  display: none
+  pointer-events: none
+  width: 100vw
+  height: 100vh
+  
+  *
+    stroke: vars.$white
+
+  @media (max-width: 1024px)
+    display: flex
+
+  &.active
+    pointer-events: all
+
+  .mobile__nav
+    width: 100wv
+
+  .mobile__back
+    background-color: vars.$main
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    width: 100vw
+
+  .mobile__title
+    color: vars.$white
+    font-size: 20px
+
+.live__search
+  position: absolute
+  top: -100%
+  left: 0
+  opacity: 0
+  pointer-events: none
+  transition: .3s
+  width: calc(100% - 60px)
+  padding: 10px 0
+  background: vars.$white
+  border: 1px solid vars.$border
+  z-index: 200
+
+  @media (max-width: 770px)
+    width: 100%
+
+  &.show
+    top: 100%
+    opacity: 1
+    pointer-events: all
+
+  li
+    list-style: none
+    padding: 5px
+
+  .loader__wrapper
+    width: 100%
+    height: 80px
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .load
+      position: static
+
+  .empty__search
+    font-size: 14px
+
+  .all__results
+    display: block
+    text-align: center
+    margin-top: 10px
+    padding-top: 10px
+    border-top: 1px solid vars.$border
